@@ -1,4 +1,4 @@
-FROM centos:6.4
+FROM centos:centos6
 MAINTAINER Viktor Miroshnikov <me@vmiroshnikov.com>
 # Basic prereq
 RUN yum -y update
