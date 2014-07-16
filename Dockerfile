@@ -2,7 +2,7 @@ FROM centos:centos6
 MAINTAINER Viktor Miroshnikov <me@vmiroshnikov.com>
 # Basic prereq
 RUN yum -y update
-RUN yum -y install curl git mercurial bzr gcc glibc-devel which
+RUN yum -y install curl git mercurial bzr gcc glibc-devel which tar
 # Install Go
 RUN curl -s https://storage.googleapis.com/golang/go1.3.src.tar.gz | tar -v -C /usr/local -xz
 RUN cd /usr/local/go/src && ./make.bash --no-clean 2>&1
