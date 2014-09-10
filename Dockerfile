@@ -19,6 +19,11 @@ RUN git clone  https://github.com/technosophos/gpm-git.git /tmp/gpm-git
 RUN cd /tmp/gpm-git && git checkout tags/v1.0.1 && make install
 RUN rm -rf /tmp/gpm-git
 
+# Install GPM-LOCAL
+RUN git clone  https://github.com/technosophos/gpm-local.git /tmp/gpm-local 
+RUN cd /tmp/gpm-local && local checkout tags/v1.0.0 && make install
+RUN rm -rf /tmp/gpm-local
+
 # Install GVP
 RUN git clone https://github.com/pote/gvp.git /tmp/gvp 
 RUN cd /tmp/gvp && git checkout tags/0.0.4 && ./configure &&  make install
