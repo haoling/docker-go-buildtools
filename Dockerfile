@@ -39,3 +39,12 @@ RUN easy_install pip && pip install s3cmd
 # Add gihtub RSA fingerprint
 RUN mkdir /root/.ssh && touch /root/.ssh/known_hosts && ssh-keyscan -H "github.com" >> /root/.ssh/known_hosts && chmod 600 /root/.ssh/known_hosts
 RUN sleep 1
+
+# Install localdynamodb
+EXPOSE 8000:8000
+RUN yum install curl -y -q
+RUN curl -s -L -o localdynamodb.tar.gz http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest
+RUN tar -xvzf localdynamodb.tar.gz
+# this is just a random version of java any newer version should also work
+RUN yum install java-1.7.0-openjdk java-1.7.0-openjdk-devel -y -q
+RUN echo run this container with: java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -port 8000 -inMemory
