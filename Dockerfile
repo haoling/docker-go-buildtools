@@ -21,7 +21,7 @@ RUN rm -rf /tmp/gpm-git
 
 # Install GPM-LOCAL
 RUN git clone  https://github.com/technosophos/gpm-local.git /tmp/gpm-local 
-RUN cd /tmp/gpm-local && git checkout tags/v1.0.0 && make install
+RUN cd /tmp/gpm-local && git checkout tags/1.0.0 && make install
 RUN rm -rf /tmp/gpm-local
 
 # Install GVP
